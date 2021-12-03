@@ -25,6 +25,9 @@ let AppController = class AppController {
     getTeste() {
         return this.appService.getTeste();
     }
+    getFindListById(params) {
+        return this.appService.getFindListById(params.id);
+    }
     getbyId(params) {
         return this.appService.getById(params.id);
     }
@@ -32,6 +35,9 @@ let AppController = class AppController {
         return this.appService.getById(id);
     }
     postNome(nome) {
+        return this.appService.postNome(nome);
+    }
+    postNome2(nome) {
         return this.appService.postNome(nome);
     }
 };
@@ -48,6 +54,13 @@ __decorate([
     __metadata("design:returntype", String)
 ], AppController.prototype, "getTeste", null);
 __decorate([
+    (0, common_1.Get)('/find/:id'),
+    __param(0, (0, common_1.Param)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "getFindListById", null);
+__decorate([
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)()),
     __metadata("design:type", Function),
@@ -63,12 +76,20 @@ __decorate([
 ], AppController.prototype, "getbyId2", null);
 __decorate([
     (0, common_1.Post)('/nome/:nome'),
-    (0, common_1.HttpCode)(200),
+    (0, common_1.HttpCode)(201),
     __param(0, (0, common_1.Param)('nome')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", String)
 ], AppController.prototype, "postNome", null);
+__decorate([
+    (0, common_1.Post)('/nome2/'),
+    (0, common_1.HttpCode)(201),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", String)
+], AppController.prototype, "postNome2", null);
 AppController = __decorate([
     (0, common_1.Controller)('teste'),
     __metadata("design:paramtypes", [app_service_1.AppService])

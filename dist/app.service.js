@@ -19,6 +19,9 @@ let AppService = class AppService {
     getById(id) {
         return `O ID Passado foi: ${id}`;
     }
+    getFindListById(id) {
+        return lista[id];
+    }
     postNome(nome) {
         lista.push(nome);
         return `cadastrado com sucesso`;

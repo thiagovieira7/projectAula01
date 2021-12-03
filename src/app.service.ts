@@ -14,6 +14,10 @@ export class AppService {
     return `O ID Passado foi: ${id}`;
   }
 
+  getFindListById(id) {
+    return lista[id];
+  }
+
   postNome(nome) {
     lista.push(nome);
     return `cadastrado com sucesso`;

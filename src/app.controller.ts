@@ -1,4 +1,5 @@
 import {
+  Body,
   Controller,
   Delete,
   Get,
@@ -23,6 +24,11 @@ export class AppController {
     return this.appService.getTeste();
   }
 
+  @Get('/find/:id')
+  getFindListById(@Param() params) {
+    return this.appService.getFindListById(params.id);
+  }
+
   @Get(':id')
   getbyId(@Param() params) {
     return this.appService.getById(params.id);
@@ -34,8 +40,14 @@ export class AppController {
   }
 
   @Post('/nome/:nome')
-  @HttpCode(200)
+  @HttpCode(201)
   postNome(@Param('nome') nome: string): string {
+    return this.appService.postNome(nome);
+  }
+
+  @Post('/nome2/')
+  @HttpCode(201)
+  postNome2(@Body() nome: string): string {
     return this.appService.postNome(nome);
   }
 }
